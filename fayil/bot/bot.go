@@ -43,9 +43,8 @@ func HandleText(c tele.Context) error {
 			authorized[uid] = true
 			menu := &tele.ReplyMarkup{ResizeKeyboard: true}
 			btnElon := menu.Text("➕ E’lon joylash")
-			//btnCancel := menu.Text("❌ Bekor qilish")
-			//, menu.Row(btnCancel)
-			menu.Reply(menu.Row(btnElon))
+			btnCancel := menu.Text("❌ Bekor qilish")
+			menu.Reply(menu.Row(btnElon), menu.Row(btnCancel))
 			return c.Send("✅ Parol to‘g‘ri! Endi botdan foydalanishingiz mumkin.", menu)
 		} else {
 			return c.Send("❌ Parol noto‘g‘ri. Qayta urinib ko‘ring.")
